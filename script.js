@@ -30,6 +30,13 @@ function playRound(computerChoice, userChoice) {
 
         scoreDiv.removeChild(gameWinner);
         scoreDiv.removeChild(scoreText);
+        const playAgain = document.createElement("button");
+        playAgain.classList.add("button");
+        playAgain.textContent = "Play Again";
+        playAgain.addEventListener("click", () => {
+            location.reload();
+        });
+        document.body.appendChild(playAgain);
     }
 
     if (winner == "Tie") {
