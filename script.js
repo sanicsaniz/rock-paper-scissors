@@ -66,17 +66,19 @@ function getWinner(com, user) {
 const rock = document.querySelector("#rock-button");
 rock.addEventListener("click", () => {
     gameWinner.textContent = playRound(getComputerChoice(), "r");
+    scoreText.textContent = "Score: " + score;
 });
 
 const paper = document.querySelector("#paper-button");
 paper.addEventListener("click", () => {
     gameWinner.textContent = playRound(getComputerChoice(), "p");
+    scoreText.textContent = "Score: " + score;
 });
 
 const scissors = document.querySelector("#scissors-button");
 scissors.addEventListener("click", () => {
     gameWinner.textContent = playRound(getComputerChoice(), "s");
-    scoreText.textContent = score;
+    scoreText.textContent = "Score: " + score;
 });
 
 scoreDiv.appendChild(gameWinner);
