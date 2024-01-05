@@ -1,8 +1,9 @@
 let score = 0;
+let gamesPlayed = 0;
 const gameWinner = document.querySelector("#winner");
 const scoreDiv = document.querySelector("#results");
 const scoreText = document.querySelector("#score");
-
+const winnerAnounce = document.querySelector("#winner-announce");
 /**
  * Generates a random choice of "rock" (r), "paper" (p), or "scissors" (s).
  *
@@ -16,13 +17,24 @@ function getComputerChoice() {
     return computerChoice;
 }
 function playRound(computerChoice, userChoice) {
+    gamesPlayed++;
     com = computerChoice;
     user = userChoice;
     let winner = getWinner(com, user);
+    if (score == 5) {
+        winnerAnounce.textContent =
+            "You won " + score + " games in " + gamesPlayed + " games played!";
+        document.body.removeChild(rock);
+        document.body.removeChild(paper);
+        document.body.removeChild(scissors);
+
+        scoreDiv.removeChild(gameWinner);
+        scoreDiv.removeChild(scoreText);
+    }
+
     if (winner == "Tie") {
         return "It's a tie play again.";
     }
-
     return (
         winner.toUpperCase() +
         " won with " +
@@ -83,3 +95,4 @@ scissors.addEventListener("click", () => {
 
 scoreDiv.appendChild(gameWinner);
 scoreDiv.appendChild(scoreText);
+scoreDiv.appendChild(winnerAnounce);
