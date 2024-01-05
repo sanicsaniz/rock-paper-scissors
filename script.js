@@ -38,6 +38,33 @@ function playRound(computerChoice, userChoice) {
         });
         document.body.appendChild(playAgain);
     }
+    switch (com) {
+        case "r":
+            com = "Rock";
+            break;
+        case "p":
+            com = "Paper";
+            break;
+        case "s":
+            com = "Scissors";
+            break;
+        default:
+            console.error();
+            break;
+    }
+    switch (user) {
+        case "r":
+            user = "Rock";
+            break;
+        case "p":
+            user = "Paper";
+            break;
+        case "s":
+            user = "Scissors";
+            break;
+        default:
+            user.error();
+    }
 
     if (winner == "Tie") {
         return "It's a tie play again.";
