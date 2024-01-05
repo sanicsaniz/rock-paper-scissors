@@ -69,13 +69,7 @@ function playRound(computerChoice, userChoice) {
     if (winner == "Tie") {
         return "It's a tie play again.";
     }
-    return (
-        winner.toUpperCase() +
-        " won with " +
-        com.toUpperCase() +
-        "-" +
-        user.toUpperCase()
-    );
+    return winner + " won with " + com + "-" + user;
 }
 // function game() {
 //     for (let i = 0; i < 5; i++) {
