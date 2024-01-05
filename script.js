@@ -3,11 +3,11 @@ function getcomputerChoice() {
     let randChoice = Math.random() * 3;
     randChoice = Math.ceil(randChoice);
     if (randChoice == 1) {
-        randChoice = "R";
+        randChoice = "r";
     } else if (randChoice == 2) {
-        randChoice = "P";
+        randChoice = "p";
     } else if (randChoice == 3) {
-        randChoice = "S";
+        randChoice = "s";
     } else {
         console.error("Error Happened");
     }
@@ -15,11 +15,8 @@ function getcomputerChoice() {
     return randChoice;
 }
 function playRound(computerChoice, userChoice) {
-    computerChoice = getcomputerChoice();
-    com = computerChoice.toLowerCase();
-    userChoice = prompt("R=Rock P=Paper S=Scissors");
-    user = userChoice.toLowerCase();
-
+    com = computerChoice;
+    user = userChoice;
     let winner = getWinner(com, user);
 
     return (
@@ -30,16 +27,16 @@ function playRound(computerChoice, userChoice) {
         user.toUpperCase()
     );
 }
-function game() {
-    for (let i = 0; i < 5; i++) {
-        console.log(playRound());
-    }
-    console.log("You won: " + score + " games.");
-}
+// function game() {
+//     for (let i = 0; i < 5; i++) {
+//         console.log(playRound());
+//     }
+//     console.log("You won: " + score + " games.");
+// }
 function getWinner(com, user) {
     if (com == user) {
         console.log("Tie Play Again");
-        playRound();
+        winner = null;
     } else if (com == "r" && user == "p") {
         winner = "You";
         score++;
@@ -61,4 +58,19 @@ function getWinner(com, user) {
 
     return winner;
 }
-game();
+// game();
+
+const rock = document.querySelector("#rock-button");
+rock.addEventListener("click", () => {
+    console.log(playRound(getcomputerChoice(), "r"));
+});
+
+const paper = document.querySelector("#paper-button");
+paper.addEventListener("click", () => {
+    console.log(playRound(getcomputerChoice(), "p"));
+});
+
+const scissors = document.querySelector("#scissors-button");
+scissors.addEventListener("click", () => {
+    console.log(playRound(getcomputerChoice(), "s"));
+});
