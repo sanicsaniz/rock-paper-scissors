@@ -33,6 +33,6 @@ body {
 }
 
 #scissors-button:hover {
-    background-color: beige;
-    color: #2d2c2c;
+    background-color: #23cbe3;
+    color: rgb(242, 242, 242);
 }
