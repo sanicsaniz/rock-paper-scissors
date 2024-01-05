@@ -1,23 +1,27 @@
 let score = 0;
-function getcomputerChoice() {
-    let randChoice = Math.random() * 3;
-    randChoice = Math.ceil(randChoice);
-    if (randChoice == 1) {
-        randChoice = "r";
-    } else if (randChoice == 2) {
-        randChoice = "p";
-    } else if (randChoice == 3) {
-        randChoice = "s";
-    } else {
-        console.error("Error Happened");
-    }
+const gameWinner = document.querySelector("#winner");
+const scoreDiv = document.querySelector("#results");
+const scoreText = document.querySelector("#score");
 
-    return randChoice;
+/**
+ * Generates a random choice of "rock" (r), "paper" (p), or "scissors" (s).
+ *
+ * @returns {string} The randomly generated choice.
+ */
+function getComputerChoice() {
+    const choices = ["r", "p", "s"];
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    const computerChoice = choices[randomIndex];
+
+    return computerChoice;
 }
 function playRound(computerChoice, userChoice) {
     com = computerChoice;
     user = userChoice;
     let winner = getWinner(com, user);
+    if (winner == "Tie") {
+        return "It's a tie play again.";
+    }
 
     return (
         winner.toUpperCase() +
@@ -35,8 +39,7 @@ function playRound(computerChoice, userChoice) {
 // }
 function getWinner(com, user) {
     if (com == user) {
-        console.log("Tie Play Again");
-        winner = null;
+        winner = "Tie";
     } else if (com == "r" && user == "p") {
         winner = "You";
         score++;
@@ -62,15 +65,19 @@ function getWinner(com, user) {
 
 const rock = document.querySelector("#rock-button");
 rock.addEventListener("click", () => {
-    console.log(playRound(getcomputerChoice(), "r"));
+    gameWinner.textContent = playRound(getComputerChoice(), "r");
 });
 
 const paper = document.querySelector("#paper-button");
 paper.addEventListener("click", () => {
-    console.log(playRound(getcomputerChoice(), "p"));
+    gameWinner.textContent = playRound(getComputerChoice(), "p");
 });
 
 const scissors = document.querySelector("#scissors-button");
 scissors.addEventListener("click", () => {
-    console.log(playRound(getcomputerChoice(), "s"));
+    gameWinner.textContent = playRound(getComputerChoice(), "s");
+    scoreText.textContent = score;
 });
+
+scoreDiv.appendChild(gameWinner);
+scoreDiv.appendChild(scoreText);
