@@ -1,38 +1,57 @@
-body {
+.rockimg {
+    width: 250px;
+    height: 110px;
+    position: relative;
+    z-index: 1;
+}
+
+.page {
     font-family: "Roboto";
     text-align: center;
     background-color: black;
     color: whitesmoke;
+    margin: 0;
 }
+
 .button {
     border-radius: 10px;
-    border-style: solid;
-    border-width: 3px;
-    border-color: rgba(255, 255, 255, 0.858);
-    color: rgba(255, 255, 255, 0.858);
-    background-color: rgba(5, 5, 5, 0.925);
-    font-size: 30px;
+    border: 3px solid #ffffff;
+    color: #ffffff;
+    background-color: #050505;
     width: 250px;
     height: 110px;
     transition: 0.5s;
 }
-#winner {
+
+.font-size-30 {
     font-size: 30px;
 }
-#score {
+
+.winner {
+    font-size: 30px;
+}
+
+.score {
     font-size: 25px;
 }
 
-#rock-button:hover {
+.rock-button:hover {
+    position: relative;
     background: none;
     background-color: #2d2c2c;
 }
-#paper-button:hover {
+
+.paper-button:hover {
     background-color: #ffffee;
     color: black;
 }
 
-#scissors-button:hover {
+.scissors-button:hover {
     background-color: #23cbe3;
     color: rgb(242, 242, 242);
+}
+
+.winner-announce {
+    font-size: 50px;
+    margin-top: 50px;
 }
